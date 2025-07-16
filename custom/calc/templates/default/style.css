@@ -1,0 +1,763 @@
+/* Основные стили для калькулятора тарифов */
+
+.calculator {
+  /* BEM: основной блок */
+  max-width: 660px;
+  margin: 40px auto;
+}
+
+.calculator__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.calculator__region {
+  border-radius: 4px;
+  border: 1px solid #E0E7E9;
+  background: #FAFAFA;
+  min-height: 100px;
+}
+
+.calculator__region-label {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.3);
+  margin-bottom: 8px;
+}
+
+.calculator__region-value {
+  font-size: 20px;
+  color: #636363;
+  min-width: 220px;
+  max-width: 300px;
+  height: 40px;
+  background: #FAFAFA;
+  border: none;
+  box-shadow: none;
+  padding-left: 12px;
+}
+
+.calculator__region-value:focus {
+  border: 1px solid #E0E7E9;
+  box-shadow: none;
+}
+
+.form_select_wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calculator__region-arrow {
+  width: 24px;
+  height: 24px;
+}
+
+.calculator__volume {
+  border-radius: 4px;
+  border: 1px solid #E0E7E9;
+  background: #FAFAFA;
+}
+
+.calculator__volume-label {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.calculator__volume-slider-row {
+  margin-top: 8px;
+}
+
+.calculator__volume-values-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.calculator__volume-min,
+.calculator__volume-max {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.3);
+  min-width: 60px;
+}
+
+/* Сброс стандартного фона для input[type=range] */
+.calculator__volume-slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: #E0E7E9;
+  box-shadow: none;
+  outline: none;
+  transition: background 0.3s;
+}
+.calculator__volume-slider::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: transparent;
+}
+.calculator__volume-slider::-ms-fill-lower,
+.calculator__volume-slider::-ms-fill-upper {
+  background: transparent;
+}
+.calculator__volume-slider::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: transparent;
+}
+
+.calculator__volume-slider::-webkit-slider-thumb {
+  background: #FFDD21;
+  border: 2px solid #E0E7E9;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.1);
+  transition: background 0.3s;
+}
+.calculator__volume-slider:focus::-webkit-slider-thumb {
+  outline: none;
+}
+.calculator__volume-slider::-moz-range-thumb {
+  background: #FFDD21;
+  border: 2px solid #E0E7E9;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.1);
+  transition: background 0.3s;
+}
+.calculator__volume-slider:focus::-moz-range-thumb {
+  outline: none;
+}
+.calculator__volume-slider::-ms-thumb {
+  background: #FFDD21;
+  border: 2px solid #E0E7E9;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.1);
+  transition: background 0.3s;
+}
+.calculator__volume-slider:focus::-ms-thumb {
+  outline: none;
+}
+
+.calculator__volume-value {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.3);
+  min-width: 60px;
+  text-align: center;
+}
+
+.calculator__volume-current {
+  font-size: 20px;
+  color: #636363;
+  min-width: 80px;
+  text-align: left;
+}
+
+.calculator__fuel-label {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.calculator__fuel-price {
+  font-size: 18px;
+  color: #636363;
+  font-weight: 500;
+}
+
+.calculator__fuel-btn {
+  min-width: 120px;
+}
+
+.calculator__fuel-tabs {
+  border-bottom: 4px solid #E0E7E9;
+  position: relative;
+  height: 52px;
+  min-height: 52px;
+  overflow: visible;
+  transition: border-color 0.3s;
+}
+.calculator__fuel-tabs--petrol {
+  border-bottom-color: #00CFCC;
+}
+.calculator__fuel-tabs--gas {
+  border-bottom-color: #FFDD21;
+}
+.calculator__fuel-tabs--dt {
+  border-bottom-color: #636363;
+}
+.calculator__fuel-tabs-underline {
+  display: none;
+}
+
+.calculator__fuel-tab {
+  position: relative;
+  flex: 1 1 0;
+  text-align: center;
+  cursor: pointer;
+  padding-bottom: 0;
+}
+
+.calculator__fuel-tab-text {
+  font-size: 20px;
+  font-family: 'Proxima Nova', Arial, sans-serif;
+  font-weight: 400;
+  color: #6F6F6F;
+  line-height: 1.25em;
+  transition: color 0.2s;
+}
+
+.calculator__fuel-tab.active .calculator__fuel-tab-text {
+  color: #000;
+}
+
+.calculator__fuel-tab-underline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 6px;
+  background: transparent;
+  border-radius: 2px 2px 0 0;
+  transition: background 0.3s;
+  z-index: 10;
+  box-shadow: 0 2px 0 0 #fff;
+}
+
+.calculator__fuel-tab.active .calculator__fuel-tab-underline {
+  background: #00CFCC;
+}
+
+.calculator__fuel-tab:not(.active):active .calculator__fuel-tab-underline {
+  background: #00CFCC;
+}
+
+/* Стили для блока выбора бренда */
+.calculator__brand-list {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.calculator__brand-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 8px 12px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: #fff;
+}
+/* .calculator__brand-item.selected {
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,123,255,0.15);
+  background: #FBCE07;
+} */
+.calculator__brand-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  transition: background 0.2s;
+}
+.calculator__brand-item.selected .calculator__brand-icon {
+  background: #FBCE07;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,123,255,0.15);
+  background: #FBCE07;
+}
+.calculator__brand-item img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+
+  transition: filter 0.2s, opacity 0.2s;
+}
+.calculator__brand-item.selected img {
+  /* Красный фильтр для SVG */
+  filter: grayscale(0) brightness(0) sepia(1) hue-rotate(-20deg) saturate(8) contrast(1.2);
+  opacity: 1;
+}
+.calculator__brand-item span {
+  font-size: 14px;
+  color: #333;
+  margin-top: 8px;
+  display: block;
+  text-align: center;
+}
+
+.calculator__option-list {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.calculator__option-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+.calculator__option-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  transition: background 0.2s;
+}
+/* Цвета фона только для выбранной опции */
+.calculator__option-item.selected .calculator__option-icon.bg-blue {
+  background: #0079C2;
+}
+.calculator__option-item.selected .calculator__option-icon.bg-lightblue {
+  background: #5FADE0;
+}
+.calculator__option-item.selected .calculator__option-icon.bg-green {
+  background: #07DE44;
+}
+.calculator__option-item img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: grayscale(-1) brightness(1.2) sepia(0) hue-rotate(0deg) opacity(1) drop-shadow(0 0 0 #D7D7D7);
+  transition: filter 0.2s;
+}
+.calculator__option-item.selected img {
+  filter: brightness(0) saturate(100%) invert(100%);
+}
+.calculator__option-item span {
+  font-size: 14px;
+  color: #333;
+  margin-top: 8px;
+  display: block;
+  text-align: center;
+}
+
+.calculator__option-groups {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 40px;
+  justify-content: flex-start;
+}
+.option-group {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.main-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+.calculator-col {
+  min-width: 0;
+  flex: 1 1 0;
+}
+.tariff-card {
+  width: 550px;
+  min-width: 320px;
+  max-width: 550px;
+  box-shadow: 0 14px 94px 0 rgba(0,41,46,0.06);
+  border-radius: 15px;
+  background: #fff;
+}
+.tariff-card__photo {
+  width: 100%;
+  border-radius: 15px;
+  object-fit: cover;
+}
+.tariff-card__tabs .tariff-tab {
+  flex: 1 1 0;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.tariff-card__tabs{
+  align-items: center;
+}
+
+.tariff-card__tabs .tariff-tab.active,
+.tariff-card__tabs .tariff-tab:focus {
+  background: #FFDD21;
+  color: #222;
+  border-color: #FFDD21;
+}
+.tariff-card__promo{
+  margin: 0 auto;
+}
+.tariff-card__promo-label {
+  font-weight: 500;
+  
+}
+.tariff-card__economy {
+  font-size: 1.1em;
+  font-weight: 500;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.tariff-card__economy-values {
+  display: flex;
+  gap: 40px;
+  justify-content: flex-start;
+  margin-bottom: 16px;
+}
+.tariff-card__economy-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.tariff-card__economy-label {
+  font-size: 1em;
+  color: #888;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.tariff-card__economy-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+.tariff-card__economy-currency {
+  font-size: 1.2em;
+  color: #888;
+  font-weight: 500;
+}
+.tariff-card__economy-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  line-height: 1;
+}
+.tariff-card__economy-currency {
+  font-size: 1em;
+  color: #888;
+  font-weight: 500;
+  margin-top: 2px;
+}
+#orderTariffBtn {
+  font-size: 1.1em;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 12px 0;
+  box-shadow: 1px 6px 20px 0 #FFDD21;
+}
+.tariff-card__tabs .btn-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  background: #F5F5F5;
+  color: #A0A0A0;
+  border-radius: 999px;
+  padding: 8px 28px;
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+  margin-right: 12px;
+  margin-bottom: 0;
+}
+.tariff-card__tabs .btn-pill:last-child {
+  margin-right: 0;
+}
+.tariff-card__tabs .btn-pill.active,
+.tariff-card__tabs .btn-pill:focus {
+  background: #31CECB;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+.tariff-card__tabs .btn-pill.active[data-tariff="favorite"]:before {
+  content: '';
+  display: inline-block;
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  background: url('/local/components/custom/calc/templates/.default/icons/Star_1.svg') no-repeat center/contain;
+  background-size: contain;
+}
+.tariff-card__tabs .btn-pill[data-tariff="econom"],
+.tariff-card__tabs .btn-pill[data-tariff="premium"] {
+  display: none !important;
+}
+
+.tariff-card__map {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #636363;
+}
+.tariff-card__map-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+.tariff-card__map-text {
+  color: #636363;
+  font-weight: 600;
+  font-size: 1.1em;
+  text-decoration: underline;
+}
+
+.tariff-card__promo-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.promo-icon {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  border-radius: 16px;
+  padding: 8px 0 0 0;
+}
+.promo-icon.selected {
+  box-shadow: 0 4px 16px rgba(49,206,203,0.15);
+  
+  background: #F5F5F5;
+}
+.promo-icon__img {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 8px;
+  object-fit: contain;
+}
+.promo-icon__circle-wrap {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.promo-icon__circle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 72px;
+  height: 72px;
+  background: #FFDD21;
+  border-radius: 50%;
+  z-index: 1;
+}
+.promo-icon__percent {
+  position: relative;
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #D7D7D7;
+  z-index: 2;
+  pointer-events: none;
+}
+.promo-icon.selected .promo-icon__percent {
+  color: #fff;
+}
+.promo-icon__check {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 20px;
+  height: 20px;
+  z-index: 3;
+}
+.promo-icon__label {
+  margin-top: 12px;
+  font-size: 1em;
+  color: #222;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-window {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  padding: 32px 24px 24px 24px;
+  min-width: 320px;
+  max-width: 90vw;
+  width: 711px;
+  height: 100vh;
+  position: relative;
+}
+.modal-title {
+
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 110px;
+  font-size: 2.4em;
+  margin: 60px;
+
+}
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: #888;
+  cursor: pointer;
+  z-index: 2;
+}
+#orderForm {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: relative;
+}
+#orderForm .form-control,
+#orderForm .form-check-input,
+#orderForm .form-check-label,
+#orderForm .btn-form {
+  margin: 0;
+}
+.btn-form{
+  
+  margin: 30px auto;
+ 
+  width: 100%;
+}
+
+.order-form-message {
+  margin-top: 18px;
+  font-size: 1.1em;
+  text-align: center;
+  font-weight: 500;
+  min-height: 24px;
+}
+.order-form-message.success {
+  color: #07DE44;
+}
+.order-form-message.error {
+  color: #e53935;
+}
+
+@media (max-width: 600px) {
+  .modal-window {
+    min-width: 0;
+    padding: 18px 6px 12px 6px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-layout {
+    flex-direction: column;
+    gap: 24px;
+    max-width: 100%;
+    padding: 0 8px;
+  }
+  .tariff-card {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 16px 8px;
+  }
+  .tariff-card__photo {
+    border-radius: 10px;
+  }
+  .tariff-card__tabs {
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+  }
+  .tariff-card__promo-icons {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  .promo-icon__circle-wrap,
+  .promo-icon__circle {
+    width: 56px;
+    height: 56px;
+  }
+  .promo-icon__percent {
+    font-size: 1em;
+  }
+  .promo-icon__label {
+    font-size: 0.95em;
+    margin-top: 8px;
+  }
+  .tariff-card__economy-values {
+    gap: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .tariff-card__economy-col {
+    align-items: flex-start;
+  }
+  .tariff-card__economy-value {
+    font-size: 1.3em;
+  }
+  #orderTariffBtn {
+    font-size: 1em;
+    padding: 14px 0;
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .main-layout {
+    flex-direction: column !important;
+    align-items: stretch;
+  }
+  .calculator-col {
+    flex: none !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+  .tariff-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin-top: 24px;
+  }
+}
+
+#orderAgree {
+  margin-right: 8px;
+}
+.form-check-label {
+  font-size: 0.98em;
+  color: #555;
+  user-select: none;
+  cursor: pointer;
+}
